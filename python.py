@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, g
 import sqlite3
 
 app = Flask(__name__)
-
+  
 def connect_db():
 	sql = sqlite3.connect('/Users/apple/Documents/MYPROJECT/project.db')
 	sql.row_factory = sqlite3.Row  #This enables the results to be displayed as python dictionaries.
@@ -35,7 +35,7 @@ def login():
 		db.execute('insert into forms (name, location) values(?, ?)', [name, location])
 		db.commit()
 
-		# return '<h1> Hi {}. You are from {}. You have submitted your form successively! </h1>'.format(name, location)
+		return '<h1> Hi {}. You are from {}. You have submitted your form successively! </h1>'.format(name, location)
 	
 
 '''
